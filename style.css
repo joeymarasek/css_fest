@@ -1,0 +1,256 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+section  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/********************
+    Text Clip
+********************/
+
+.text-clip {
+    height: 100vh;
+}
+
+.text-clip h1 {
+    font-family: 'Climate Crisis', cursive;
+    font-size: 10vw;
+    background-image: url(/media/beach-sunset.jpg);
+    background-size: cover;
+    background-clip: text;
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/********************
+    Video Clip
+********************/
+
+.video-clip {
+    position: relative;
+}
+
+.video-clip video {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.video-clip h1 {
+    position: absolute;
+    font-family: 'Climate Crisis', cursive;
+    font-size: 10vw;
+    mix-blend-mode: darken;
+    background-color: black;
+    color: white;
+    width: 100%;
+    line-height: 100vh;
+    text-align: center;
+}
+
+/********************
+    Shadow Hacks
+********************/
+
+.shadow-hacks {
+    background-color: antiquewhite;
+    flex-direction: column;
+    padding-top: 10em;
+}
+
+.shadow-box {
+    background-color: white;
+    padding: 10em;
+    position: relative;
+    margin-bottom: 5%;
+    height: auto;
+    transition: all 200ms ease-in-out;
+}  
+
+.shadow-box:hover {
+    box-shadow:
+        inset 0 0 0 20px red, 
+        inset 0 0 0 40px green,
+        inset 0 0 0 60px blue;
+    transform: scale(1.2);
+}
+
+.shadow-box-1 {
+    background-color: white;
+    padding: 10em;
+    position: relative;
+    margin-bottom: 5%;
+    height: auto;
+    transition: all 200ms ease-in-out;
+}
+
+.shadow-box-1:hover {
+    box-shadow:
+        0 0 0 20px red, 
+        0 0 0 40px green,
+        0 0 0 60px blue;
+    transform: scale(0.9);
+}
+
+.shadow-hacks h2 {
+    font-family: 'Climate Crisis', cursive;
+    font-size: 3vw;
+}
+
+.shadow-box-2 {
+    background-color: white;
+    padding: 10em;
+    position: relative;
+    height: auto;
+    transition: all 200ms ease-in-out;
+}
+
+.shadow-box-2:hover {
+    box-shadow:
+        0 40px 0 -20px red, 
+        0 80px 0 -40px green,
+        0 120px 0 -60px blue;
+    transform: translatey(-40px);
+}
+
+.gumroad {
+    padding: 10em;
+    position: relative;
+    height: auto;
+}
+
+.gumroad-button {
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    font-size: 2rem;
+    padding: 20px 40px;
+    transition: all 200ms ease-in-out;
+}
+
+.gumroad-button:hover {
+    box-shadow: 
+        10px 10px 0 0 #FF90E8,
+        10px 10px 0 2px black,
+        20px 20px 0 0 #FFC900,
+        20px 20px 0 2px black;
+    transform: translateX(-20px) translateY(-20px);
+}
+
+/********************
+    Animated Menu
+********************/
+
+.animated-menu {
+    height: 25vh;
+    gap: clamp(2rem, 8vw, 4rem);
+}
+
+.animated-menu button {
+    background: transparent;
+    border: 10px solid black;
+    border-radius: 1rem;
+}
+
+/***** Button 1 *****/
+
+.btn1 .line {
+    transform-origin: center;
+    transition: 
+        y 300ms ease-in 300ms,
+        rotate 300ms ease-in,
+        opacity 0ms 300ms;
+}
+
+.btn1[aria-expanded="true"] .line {
+    transition: 
+        y 300ms ease-in,
+        rotate 300ms ease-in 300ms,
+        opacity 0ms 300ms;
+}
+
+.btn1[aria-expanded="true"] :is(.top, .bottom) {
+    y: 45;
+}
+
+.btn1[aria-expanded="true"] .top {
+    rotate: 45deg;
+}
+
+.btn1[aria-expanded="true"] .middle {
+    opacity: 0;
+}
+
+.btn1[aria-expanded="true"] .bottom {
+    rotate: -45deg;
+}
+
+
+/***** Button 2 *****/
+
+.btn2 .line {
+    animation: to-open-icon 1s forwards;
+}
+
+.btn2[aria-expanded="true"] .line {
+    animation: to-close-icon 1s forwards;
+}
+
+.btn2 .line.top {
+    --rotation: -45deg;
+    transform-origin: 65px 45px;
+}
+
+.btn2 .line.bottom {
+    --rotation: 45deg;
+    transform-origin: 60px 55px;
+}
+
+@keyframes to-close-icon {
+    0% { stroke-dashoffset: 0; }
+    40% { stroke-dashoffset: 79.9; }
+    60% { stroke-dashoffset: 79.9; rotate: var(--rotation); }
+    100% { stroke-dashoffset: 0; rotate: var(--rotation); }
+}
+
+@keyframes to-open-icon {
+    0% { stroke-dashoffset: 0; rotate: var(--rotation); }
+    40% { stroke-dashoffset: 79.9; rotate: var(--rotation); }
+    60% { stroke-dashoffset: 79.9; }
+    100% { stroke-dashoffset: 0;  }
+}
+
+/***** Button 3 *****/
+
+.btn-3 {
+    overflow: hidden;
+}
+
+.btn3 svg {
+    transition: translate 1s, rotate 1s;
+}
+
+.btn3[aria-expanded="true"] svg {
+    translate: 10px -10px;
+    rotate:  .125turn;
+}
+
+.btn3 .line {
+    transition: 1s;
+    stroke-dasharray: 60 31 60 300;
+}
+
+.btn3[aria-expanded="true"] .line {
+    stroke-dasharray: 60 105 60 300;
+    stroke-dashoffset: -90;
+}
